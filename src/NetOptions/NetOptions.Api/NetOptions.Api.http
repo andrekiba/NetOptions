@@ -1,0 +1,6 @@
+@NetOptions.Api_HostAddress = http://localhost:5117
+
+GET {{NetOptions.Api_HostAddress}}/options/logging
+Accept: application/json
+
+###
