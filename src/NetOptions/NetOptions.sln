@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Api", "NetOption
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Monitoring", "NetOptions.Monitoring\NetOptions.Monitoring.csproj", "{928BE73F-DBA8-4F50-8552-2AD54EBACD43}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Validation", "NetOptions.Validation\NetOptions.Validation.csproj", "{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

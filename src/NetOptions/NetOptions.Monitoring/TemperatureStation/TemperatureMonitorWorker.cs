@@ -22,41 +22,36 @@ internal sealed class TemperatureMonitorWorker : BackgroundService
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        logger.LogInformation("Current sensor station options: {Options}", options.CurrentValue);
+        logger.LogInformation("Station options at start:\n{Options}", options.CurrentValue);
 
         while (!stoppingToken.IsCancellationRequested)
         {
             var currentOptions = options.CurrentValue;
 
-            foreach (var (sensor, thresholds) in currentOptions.Stations ?? [])
+            foreach (var (stationName, thresholds) in currentOptions.Stations ?? [])
             {
-                var service = temperatureStationFactory.Create(sensor);
-                var temp = service.ReadTemperature();
-                AlertSensorReadings(sensor, temp, thresholds);
+                var station = temperatureStationFactory.GetOrCreate(stationName);
+                var temp = station.ReadTemperature();
+                AlertStationReadings(stationName, temp, thresholds);
             }
 
             await Task.Delay(currentOptions.PollingInterval, stoppingToken);
         }
     }
 
-    void AlertSensorReadings(string sensor, double temp, TemperatureThresholdOptions temperatureThresholds)
+    void AlertStationReadings(string stationName, double temp, TemperatureThresholdOptions temperatureThresholds)
     {
-        var isLowerThanOrAtMax = temp <= temperatureThresholds.High;
-        var isGreaterThanOrAtMin = temp >= temperatureThresholds.Low;
+        var isInRange = temp >= temperatureThresholds.Low && temp <= temperatureThresholds.High;
 
-        if (isLowerThanOrAtMax && isGreaterThanOrAtMin)
-        {
-            logger.LogInformation("Normal '{Sensor}' reading: {Temp:F2}°C", sensor, temp);
-        }
+        if (isInRange)
+            logger.LogInformation("Normal '{Station}' reading: {Temp:F2}°C", stationName, temp);
         else
-        {
-            logger.LogCritical("The '{Sensor}' reading is out of range: {Temp:F2}°C", sensor, temp);
-        }
+            logger.LogCritical("The '{Station}' reading is out of range: {Temp:F2}°C", stationName, temp);
     }
 
     void OnOptionsChanged(TemperatureStationOptions latestOptions)
     {
-        logger.LogInformation("Threshold's changed: {Options}", latestOptions);
+        logger.LogInformation("Station options changed:\n{Options}", latestOptions);
     }
 
     public override void Dispose()

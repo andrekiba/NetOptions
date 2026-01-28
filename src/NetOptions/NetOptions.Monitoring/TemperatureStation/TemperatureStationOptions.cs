@@ -38,7 +38,7 @@ public sealed partial class TemperatureStationOptions
         builder.AppendLine();
 
         if (Stations is { Count: > 0 })
-            builder.AppendLine("Sensors:");
+            builder.AppendLine("Stations:");
         
         foreach (var (name, thresholds) in Stations ?? [])
         {

@@ -18,7 +18,7 @@ public sealed class FeatureOptions
     /// <summary>
     /// Gets or sets the version of the feature.
     /// </summary>
-    public Version? Version { get; set; }
+    public string? Version { get; set; }
 
     /// <summary>
     /// Gets or sets the endpoint (<see cref="Uri"/>) of the feature.

@@ -1,7 +1,7 @@
 ﻿namespace NetOptions.Monitoring.TemperatureStation;
 
 internal sealed class FakeTemperatureStation(
-    double initialTemperature = 20, 
+    double initialTemperature = 18, 
     double minChange = -0.05, 
     double maxChange = 0.5) : ITemperatureStation
 {

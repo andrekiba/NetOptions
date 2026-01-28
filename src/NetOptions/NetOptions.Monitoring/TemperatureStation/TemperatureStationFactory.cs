@@ -5,7 +5,7 @@ internal sealed class TemperatureStationFactory
     readonly Dictionary<string, ITemperatureStation> stations = 
         new(comparer: StringComparer.OrdinalIgnoreCase);
 
-    public ITemperatureStation Create(string name)
+    public ITemperatureStation GetOrCreate(string name)
     {
         if (stations.TryGetValue(name, out var station))
             return station;
