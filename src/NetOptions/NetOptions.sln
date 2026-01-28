@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Api", "NetOptions.Api\NetOptions.Api.csproj", "{4F21CA5A-4089-48CE-AC80-5593857FCCF9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Monitoring", "NetOptions.Monitoring\NetOptions.Monitoring.csproj", "{928BE73F-DBA8-4F50-8552-2AD54EBACD43}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{4F21CA5A-4089-48CE-AC80-5593857FCCF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F21CA5A-4089-48CE-AC80-5593857FCCF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F21CA5A-4089-48CE-AC80-5593857FCCF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{928BE73F-DBA8-4F50-8552-2AD54EBACD43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
