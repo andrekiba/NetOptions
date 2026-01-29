@@ -3,7 +3,10 @@ using NetOptions.Validation.Infrastructure.Features;
 
 namespace NetOptions.Validation;
 
-public class Worker(IOptionsMonitor<FeatureOptions> options, ILogger<Worker> logger) : BackgroundService
+public class Worker(
+    IOptionsMonitor<FeatureOptionsWithManualValidate> manualOptions,
+    IOptionsMonitor<FeatureOptions> options, 
+    ILogger<Worker> logger) : BackgroundService
 {
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
@@ -13,22 +16,28 @@ public class Worker(IOptionsMonitor<FeatureOptions> options, ILogger<Worker> log
             {
                 logger.LogInformation(
                     "PreorderBike feature options: {Options}",
-                    GetNamedOptionsAsLogString("PreorderBike"));
+                    GetNamedOptionsAndLogValidationErrors("PreorderBike"));
 
                 logger.LogInformation(
                     "CustomizeBike feature options:\n{Options}",
-                    GetNamedOptionsAsLogString("CustomizeBike"));
+                    GetNamedOptionsAndLogValidationErrors("CustomizeBike"));
             }
 
             await Task.Delay(TimeSpan.FromSeconds(30), stoppingToken);
         }
     }
     
-    string GetNamedOptionsAsLogString(string name)
+    string GetNamedOptionsAndLogValidationErrors(string name)
     {
         try
         {
-            return options.Get(name).ToString();
+            var validation = Environment.GetEnvironmentVariable("OptionsValidation");
+            return validation switch
+            {
+                "Manual" => manualOptions.Get(name).ToString(),
+                "Annotations" => options.Get(name).ToString(),
+                _ => string.Empty
+            };
         }
         catch (OptionsValidationException ex)
         {

@@ -6,6 +6,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Monitoring", "Ne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Validation", "NetOptions.Validation\NetOptions.Validation.csproj", "{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.Library", "NetOptions.Library\NetOptions.Library.csproj", "{18DDF732-089E-4018-9D45-5517CC09B04B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetOptions.LibraryConsumer", "NetOptions.LibraryConsumer\NetOptions.LibraryConsumer.csproj", "{22FB6D7C-D6C9-47FC-839B-03053023AD4E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +28,13 @@ Global
 		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F37C48D4-78B5-4C6E-990B-7D0BC32E9969}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18DDF732-089E-4018-9D45-5517CC09B04B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18DDF732-089E-4018-9D45-5517CC09B04B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18DDF732-089E-4018-9D45-5517CC09B04B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18DDF732-089E-4018-9D45-5517CC09B04B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22FB6D7C-D6C9-47FC-839B-03053023AD4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22FB6D7C-D6C9-47FC-839B-03053023AD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22FB6D7C-D6C9-47FC-839B-03053023AD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22FB6D7C-D6C9-47FC-839B-03053023AD4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

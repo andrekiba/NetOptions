@@ -15,13 +15,22 @@ public sealed partial class FeatureOptions : IValidateOptions<FeatureOptions>
     [RegularExpression(pattern: @"^\d+(\.\d+){1,3}$", ErrorMessage = "The version input doesn't match the regex.")]
     public string? Version { get; set; }
     
+    [Required]
     public Uri? Endpoint { get; set; }
     
     [Key]
     public string? ApiKey { get; set; }
     
-    [DeniedValues(values: ["deprecated", "out-of-date"])]
-    public string[] Tags { get; set; } = [];
+    //[DeniedValues(values: ["deprecated", "out-of-date"])]
+    //public string[] Tags { get; set; } = [];
+    
+    [ValidateEnumeratedItems]
+    public TagItem[] Tags { get; set; } = [];
+    public record TagItem
+    {
+        [DeniedValues("deprecated", "out-of-date")]
+        public required string Value { get; set; }
+    }
     
     public override string ToString()
     {
@@ -39,7 +48,7 @@ public sealed partial class FeatureOptions : IValidateOptions<FeatureOptions>
         builder.AppendLine();
 
         if (Tags is { Length: > 0 })
-            builder.AppendLine($"Stations: {string.Join(", ", Tags)}");
+            builder.AppendLine($"Tags: {string.Join(", ", Tags.Select(tag => tag.Value))}");
 
         return builder.ToString();
     }
